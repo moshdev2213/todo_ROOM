@@ -38,19 +38,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvId" />
 
-        <ImageView
+        <TextView
             android:id="@+id/imgDlt"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginEnd="16dp"
-            android:elevation="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="19dp"
+            android:background="@color/design_default_color_error"
+            android:text="Delete"
+            android:textColor="@color/white"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.878"
             app:layout_constraintStart_toEndOf="@+id/tvId"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.489"
-            tools:srcCompat="@drawable/baseline_delete_24" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

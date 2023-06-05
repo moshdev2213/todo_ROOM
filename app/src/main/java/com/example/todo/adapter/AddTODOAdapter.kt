@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todo.R
@@ -38,12 +39,13 @@ class AddTODOAdapter(
 
     override fun onBindViewHolder(holder: AddTODOHolder, position: Int) {
         holder.bind(TodoList[position],cardCilked)
-        holder.itemView.findViewById<ImageView>(R.id.imgDlt).setOnClickListener {
+        holder.itemView.findViewById<TextView>(R.id.imgDlt).setOnClickListener {
             showAlert(position,TodoList[position])
         }
     }
 
-    fun showAlert(position: Int,todo: Todo){
+    private fun showAlert(position: Int, todo: Todo){
+
         val alert =  AlertDialog.Builder(context)
         alert.setMessage("Are You Sure")
         alert.setTitle("Delete!...")
@@ -60,8 +62,11 @@ class AddTODOAdapter(
         alert.setNegativeButton("No",){dialogInterface:DialogInterface,i:Int->
             dialogInterface.cancel()
         }
+
+        val alertDialog = alert.create()
+        alertDialog.show()
     }
-    fun deleteItem(position: Int){
+    private fun deleteItem(position: Int){
         TodoList.removeAt(position)
         notifyItemRemoved(position)
         notifyDataSetChanged()
@@ -75,7 +80,7 @@ class AddTODOAdapter(
 
 class AddTODOHolder(private val view: View):RecyclerView.ViewHolder(view){
     fun bind(todo: Todo,cardCilked:(Todo)->Unit){
-        val imgDlt =view.findViewById<ImageView>(R.id.imgDlt)
+        val imgDlt =view.findViewById<TextView>(R.id.imgDlt)
         val cvToDoView =view.findViewById<CardView>(R.id.cvToDoView)
         val tvText =view.findViewById<TextView>(R.id.tvText)
         val tvId =view.findViewById<TextView>(R.id.tvId)
